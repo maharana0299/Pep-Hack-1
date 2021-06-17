@@ -1,0 +1,24 @@
+{
+    "name": "Pep-Hack-1",
+    "version": "1.0.0",
+    "description": "- No of Repositories in Github \r     - Top 5 Projects title\r     - Total Commits\r     - Leetcode Questions Solved, Code Acceptance Percentage, Participated In how many contests\r     - Codeshef Stars, Question Solved and Number of contests Attended",
+    "main": "profileExtracter.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/maharana0299/Pep-Hack-1.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/maharana0299/Pep-Hack-1/issues"
+    },
+    "homepage": "https://github.com/maharana0299/Pep-Hack-1#readme",
+    "dependencies": {
+        "puppeteer": "^10.0.0",
+        "puppeteer-extra": "^3.1.18"
+    }
+}
