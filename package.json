@@ -20,7 +20,9 @@
   "homepage": "https://github.com/maharana0299/Pep-Hack-1#readme",
   "dependencies": {
     "chalk": "^4.1.1",
+    "csvtojson": "^2.0.10",
     "express": "^4.17.1",
+    "json2csv": "^5.0.6",
     "puppeteer": "^10.0.0",
     "puppeteer-extra": "^3.1.18"
   },
