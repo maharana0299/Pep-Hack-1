@@ -1,6 +1,5 @@
 const puppeteer = require('puppeteer');
 const chalk = require('chalk');
-const fs = require('fs');
 const constants = require(`../excelKeys.js`);
 
 async function gitScrapper(browser, page, user, githubKey) {
