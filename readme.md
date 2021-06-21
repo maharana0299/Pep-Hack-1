@@ -6,6 +6,6 @@
 # For each, it will scrap following things
     - No of Repositories in Github 
     - Top 5 Projects title
-    - Total Commits
+    - Total Contribution
     - Leetcode Questions Solved, Code Acceptance Percentage, Participated In how many contests
     - Codeshef Stars, Question Solved and Number of contests Attended
