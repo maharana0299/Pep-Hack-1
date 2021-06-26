@@ -9,7 +9,7 @@ let allPersonalRepo = document.querySelectorAll('#user-repositories-list li.sour
 Next step is to scrap leetcode details 
 
 # Leetcode 
-- Total Submmissions -> .ant-card-head-title (5th)
+- Total Submmissions -> .ant-card-head-title (4th)
 - Total Questions Solved -> div.total-solved-count__2El1
 - Easy-Medium-Hard -> span.difficulty-ac-count__jhZm
 - Contest Attended -> .css-x9b7oa (2nd)

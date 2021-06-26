@@ -11,13 +11,18 @@ app.get('/', function(req, res) {
 
 app.get('/hello', function(req, res) {
     res.send('Hello');
-})
+});
 
 app.get('/extractData', async(req, res) => {
     console.log('Extracting Data');
     let a = await getData();
     console.log(a);
     res.send(a);
+});
+
+app.get('/scrap', (req, res) => {
+    res.send("Heloow");
 })
+
 app.listen(port);
 console.log('Server started at http://localhost:' + port);
