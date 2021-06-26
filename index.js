@@ -5,7 +5,7 @@ const csv = require('csvtojson');
 const { parse } = require('json2csv');
 const csvFilePath = './Profile Data.csv';
 const constants = require(`./excelKeys.js`);
-// const gitScrapper = require('./utilites/gitScrapper');
+
 
 let githubKey;
 let leetCodeKey;
@@ -72,8 +72,10 @@ async function automate(csvFilePath) {
         }
 
         await browser.close();
+        return jsonArray;
     } catch (e) {
         console.log(e);
+        return undefined;
     }
 }
 
@@ -113,6 +115,10 @@ async function codechefScrap(page, user, codechefKey) {
         } catch (e) {
             console.log(e);
         }
+    } else {
+        user[constants.codechefRating] = 0;
+        user[constants.codechefStars] = 0;
+        user[constants.codechefQSolved] = 0;
     }
 }
 
@@ -160,6 +166,11 @@ async function leetcodeScrap(page, user, leetCodeKey) {
         } catch (e) {
             console.log(e);
         }
+    } else {
+        user[constants.totalSubbmissions] = 0;
+        user[constants.leetcodeNoOfQuestions] = 0;
+        user[constants.leetcodeContest] = 0;
+        user[constants.codeAcceptance] = 0;
     }
 }
 
@@ -271,6 +282,12 @@ async function gitScrapper(browser, page, user, githubKey) {
             console.log(chalk.red(e));
             return { error: "Error Occured" }
         }
+    } else {
+        user[constants.noOfRepo] = 0;
+        user[constants.contribution] = 0;
+        user[constants.gitRepo] = '';
+        user[constants.knownLanguages] = '';
+
     }
 }
 
@@ -294,4 +311,6 @@ async function getFirst5RepoForUser(top5Repo, page, selector) {
         return top5Repo;
     }, top5Repo, selector);
 }
-automate(`${csvFilePath}`);
+
+module.exports = automate;
+// automate(`${csvFilePath}`);
