@@ -11,4 +11,4 @@ But it will consume so much of your time analysing. So when you run the scripts,
     - Top 5 Projects title
     - Total Contribution
     - Leetcode Questions Solved, Code Acceptance Percentage, Participated In how many contests
-    - Codeshef Stars, Question Solved and Number of contests Attended
+    - Codechef Stars, Question Solved and Number of contests Attended
