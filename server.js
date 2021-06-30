@@ -26,11 +26,11 @@ app.post('/upload', async(req, res) => {
 
     upload.single('file')(req, res, async(err) => {
         if (!err) {
-            let jsonArray = await automate('./uploads/data.csv');
-            if (jsonArray) {
-                fs.writeFileSync('./uploads/dataModify.json', JSON.stringify(jsonArray));
-                console.log(jsonArray);
-            }
+            // let jsonArray = await automate('./uploads/data.csv');
+            // if (jsonArray) {
+            //     fs.writeFileSync('./uploads/dataModify.json', JSON.stringify(jsonArray));
+            //     console.log(jsonArray);
+            // }
 
             res.sendFile(__dirname + '/tables.html');
             // res.send('Uploading Sucessfull');
@@ -46,5 +46,7 @@ app.get('/newData', (req, res) => {
     let json = fs.readFileSync('./uploads/dataModify.json');
     res.send(json + "");
 });
+
+app.get('/sortIt', (req, res) => {})
 app.listen(port);
 console.log('Server started at http://localhost:' + port);

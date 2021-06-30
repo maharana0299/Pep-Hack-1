@@ -111,7 +111,11 @@ async function codechefScrap(page, user, codechefKey) {
             user[constants.codechefRating] = ratings;
             user[constants.codechefStars] = ratingStars;
             user[constants.codechefQSolved] = problemsSolved;
-            console.log(problemsSolved);
+
+            console.log(`Codefhef rating is ${user[constants.codechefRating]}`);
+            console.log(`Codechef Stars is ${user[constants.codechefStars]}`);
+            console.log(`Codechef questions solved ${user[constants.codechefQSolved]}`);
+
         } catch (e) {
             console.log(e);
         }
@@ -159,6 +163,11 @@ async function leetcodeScrap(page, user, leetCodeKey) {
                 }
             });
             // now we have the data, lets add it to user's json
+            console.log('Leetcode Details');
+            console.log(`Submissions: ${noOfSumbssions}`);
+            console.log(`Questions Solved: ${questionsSolved}`);
+            console.log(`Contest Attended: ${contestAttended}`);
+            console.log(`Code Acceptance: ${acceptance}`);
             user[constants.totalSubbmissions] = noOfSumbssions;
             user[constants.leetcodeNoOfQuestions] = questionsSolved;
             user[constants.leetcodeContest] = contestAttended;
