@@ -16,7 +16,7 @@ async function automate(csvFilePath) {
 
         const browser = await puppeteer.launch({
             headless: false,
-            slowMo: 50, // for slowing a bit 
+            slowMo: 30, // for slowing a bit 
             defaultViewport: null, // null the default viewport 
             args: ["--start-maximized"], // for full screen
         });
@@ -118,6 +118,9 @@ async function codechefScrap(page, user, codechefKey) {
 
         } catch (e) {
             console.log(e);
+            user[constants.codechefRating] = 0;
+            user[constants.codechefStars] = 0;
+            user[constants.codechefQSolved] = 0;
         }
     } else {
         user[constants.codechefRating] = 0;
@@ -174,6 +177,10 @@ async function leetcodeScrap(page, user, leetCodeKey) {
             user[constants.codeAcceptance] = acceptance;
         } catch (e) {
             console.log(e);
+            user[constants.totalSubbmissions] = 0;
+            user[constants.leetcodeNoOfQuestions] = 0;
+            user[constants.leetcodeContest] = 0;
+            user[constants.codeAcceptance] = 0;
         }
     } else {
         user[constants.totalSubbmissions] = 0;
@@ -228,7 +235,7 @@ async function gitScrapper(browser, page, user, githubKey) {
             console.log(chalk.green(`Contribution In Last Year: ${contribution}`));
             // if user have pinned repositories which are not forked from other then extract them 
 
-            await page.waitForSelector('.pinned-item-list-item');
+            await page.waitForSelector('.pinned-item-list-item', { timeout: 5000 });
 
             let top5Repo = await page.evaluate(() => {
 
@@ -252,7 +259,7 @@ async function gitScrapper(browser, page, user, githubKey) {
             let repositorySection = (await page.$$('.UnderlineNav-item'))[1];
             await Promise.all([repositorySection.click(), page.waitForNavigation()]);
 
-            await page.waitForSelector('#user-repositories-list li.source', { visible: true });
+            await page.waitForSelector('#user-repositories-list li.source', { visible: true, timeout: 5000 });
             let totalRepositories = await page.evaluate(() => {
                 let allPersonalRepo = document.querySelectorAll('#user-repositories-list li.source')
                 return allPersonalRepo.length;
@@ -288,6 +295,11 @@ async function gitScrapper(browser, page, user, githubKey) {
 
             return user;
         } catch (e) {
+            user[constants.noOfRepo] = 0;
+            user[constants.contribution] = 0;
+            user[constants.gitRepo] = '';
+            user[constants.knownLanguages] = '';
+
             console.log(chalk.red(e));
             return { error: "Error Occured" }
         }
