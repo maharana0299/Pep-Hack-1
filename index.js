@@ -15,7 +15,7 @@ async function automate(csvFilePath) {
     try {
 
         const browser = await puppeteer.launch({
-            headless: true,
+            headless: false,
             slowMo: 50, // for slowing a bit 
             defaultViewport: null, // null the default viewport 
             args: ["--start-maximized"], // for full screen
