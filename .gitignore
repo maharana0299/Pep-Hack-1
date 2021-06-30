@@ -4,5 +4,3 @@ fileUpload.html
 server.js
 util
 styles
-./uploads/data.csv
-./uploads/dataModify.json
