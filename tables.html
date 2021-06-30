@@ -43,10 +43,13 @@
         
         .tablecontainer {
             width: 90%;
+            height: 90vh;
             overflow-x: scroll;
+            overflow-y: scroll;
         }
         
         table {
+            position: relative;
             background-color: white;
             border-collapse: collapse;
         }
@@ -79,11 +82,19 @@
         thead {
             font-family: 'Playfair Display', serif;
             font-weight: 700;
+            position: sticky;
+            top: 0;
         }
         
         th,
         td {
             padding: 15px;
+        }
+        
+        .col {
+            position: sticky;
+            top: 0;
+            background: #7f8fa6;
         }
         
         .headcol {

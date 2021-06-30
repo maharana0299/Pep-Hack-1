@@ -47,6 +47,6 @@ app.get('/newData', (req, res) => {
     res.send(json + "");
 });
 
-app.get('/sortIt', (req, res) => {})
+app.get('/sortIt', (req, res) => {});
 app.listen(port);
 console.log('Server started at http://localhost:' + port);
