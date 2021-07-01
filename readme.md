@@ -1,6 +1,6 @@
 # Automate Profile Evaluation of Candidates With the help of this script 
 
-## This takes ans excel file containing data of Students who have applied to your organization. (Data contains Candidate's Github, Leetcode, Codeshef profile links) 
+## This takes ans excel file containing data of Students who have applied to your organization. (Data contains Candidate's Github, Leetcode, Codechef profile links) 
 ## The script runs and gets all the information all stores it in an excel file
 
 ## How does it will help you ?
