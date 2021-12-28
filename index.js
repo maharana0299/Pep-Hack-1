@@ -83,7 +83,7 @@ async function codechefScrap(page, user, codechefKey) {
     if (user[codechefKey]) {
         try {
 
-            console.log(chalk.greenBright('Extracting codechef details'));
+            console.log(chalk.blue(`Extracting Codeshef Details for ${user['Name']}`));
             await page.goto(user[codechefKey]);
             await page.waitForSelector('.rating-star');
 
@@ -133,6 +133,9 @@ async function leetcodeScrap(page, user, leetCodeKey) {
     // goto leetcode profile 
     if (user[leetCodeKey]) {
         try {
+            console.log(chalk.blue(`Extracting Leetcode Details for ${user['Name']}`));
+            console.log(user, leetCodeKey);
+            console.log(user[leetCodeKey]);
             await page.goto(user[leetCodeKey]);
             await page.waitForSelector('.ant-card-head-title');
 
@@ -191,13 +194,14 @@ async function leetcodeScrap(page, user, leetCodeKey) {
 }
 
 function updateKeys(jsonArray) {
+    leetCodeKey = githubKey = codechefKey = null;
     for (let key in jsonArray[0]) {
         let validate = key.toLowerCase();
-        if (validate.includes('github')) {
+        if (validate.includes('github') && !githubKey) {
             githubKey = key;
-        } else if (validate.includes('leetcode')) {
+        } else if (validate.includes('leetcode') && !leetCodeKey) {
             leetCodeKey = key;
-        } else if (validate.includes('codechef')) {
+        } else if (validate.includes('codechef') && !codechefKey) {
             codechefKey = key;
         }
     }
